@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quiz app</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+
+    <header>
+      <h2 class="title">Quiz</h2>
+      <ul>
+        <li><a class="new" href="#">New Game</a></li>
+      </ul>
+    </header>
+
+    <main>
+
+      <div class="quiz">
+        <h2 class="question">Question goes here</h2>
+        <form class="user-guess" action="index.html" method="post">
+          <input class="guess choice-1" type="button" name="option-1" value="option-1">
+          <input class="guess choice-2" type="button" name="option-2" value="option-2">
+          <input class="guess choice-3" type="button" name="option-3" value="option-3">
+          <input class="guess choice-4" type="button" name="name" value="option-4">
+        </form>
+        <p class="info">Question <span class="question_number">1</span> of 10</p>
+        <p class="info"><span class="correct">0</span> Correct <span class="incorrect">0</span> Incorrect</p>
+      </div>
+
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
