@@ -55,14 +55,25 @@ $(document).ready(function(){
   currentScore: 0,
   numberIncorrect: 0,
   currentQuestion: 0,
+  // -------- Displays question and appends choices to forum --------
   displayQuestion: function() {
     var question = this.questions[this.currentQuestion];
-    $('.question').html(question.text);
-    for (i=0; i < question.choices.length; i++) {
-      var choice = $('<input>', {type:'button', value: question.choices[i], class:'guess'});
-      $('.user-guess').append(choice);
+    if (this.currentQuestion == 5) {
+      var newGame = $('<input>', {type:'button', value:'New Game', class:'new'})
+      $('.question').html('You answered ' + this.currentScore + ' correct out of 5' );
+      $('.user-guess').append(newGame);
+      $('.info').hide();
+    }
+    else {
+      $('.question').html(question.text);
+      for (i=0; i < question.choices.length; i++) {
+        var choice = $('<input>', {type:'button', value: question.choices[i], class:'guess'});
+        $('.user-guess').append(choice);
+        console.log(this.currentQuestion);
+      }
     }
   },
+  // -------- Checks if user guess is correct on click and updates score --------
   checkAnswer: $('.user-guess').on('click', '.guess', function() {
     if (this.value == Quiz.questions[Quiz.currentQuestion].correctAnswer) {
       Quiz.currentScore += 1;
@@ -79,5 +90,15 @@ $(document).ready(function(){
   }),
 
   }
-  Quiz.displayQuestion();
+  $('.user-guess').on('click', '.new', function(){
+    Quiz.currentQuestion = 0;
+    Quiz.numberIncorrect = 0;
+    Quiz.currentScore = 0;
+    $('.question_number').html(Quiz.currentQuestion + 1);
+    $('.correct').html('0')
+    $('.incorrect').html('0')
+    $('.new').remove();
+    Quiz.displayQuestion();
+    $('.info').show();
+  })
 })

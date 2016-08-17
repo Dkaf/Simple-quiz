@@ -10,9 +10,9 @@ ul {
 }
 
 .new {
-  text-align: right;
+  /*text-align: right;
   text-decoration: none;
-  color: black;
+  color: black;*/
   text-transform: uppercase;
 }
 
@@ -29,4 +29,8 @@ ul {
   height: 70px;
   margin: 0 auto;
   border: 1px solid black;
+}
+
+.info {
+  display: none;
 }
